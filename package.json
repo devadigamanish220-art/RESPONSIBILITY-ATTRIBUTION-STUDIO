@@ -1,0 +1,9 @@
+{
+  "name": "responsibility-attribution-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Responsible Robotics responsibility attribution studio",
+  "scripts": {
+    "start": "node server.js"
+  }
+}
