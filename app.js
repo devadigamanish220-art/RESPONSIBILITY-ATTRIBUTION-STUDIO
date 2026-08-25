@@ -103,6 +103,10 @@ document.querySelector('#addActor').addEventListener('click', () => { actors.pus
 document.querySelector('#addLog').addEventListener('click', () => { const text = prompt('Observation'); if (text?.trim()) defaultLog.push([new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), text.trim()]); renderLog(); });
 document.querySelector('#resetButton').addEventListener('click', () => { actors = structuredClone(defaultActors); document.querySelector('#caseForm').reset(); localStorage.removeItem(storageKey); renderActors(); renderResult(); });
 document.querySelector('#exportButton').addEventListener('click', () => { const payload = { title: document.querySelector('#incidentTitle').value, outcome: document.querySelector('#outcome').value, evidence: document.querySelector('#evidence').value, attribution: actors }; const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = 'responsibility-assessment.json'; link.click(); URL.revokeObjectURL(link.href); });
+const photoModal = document.querySelector('#photoModal');
+document.querySelector('#photoTrigger').addEventListener('click', () => photoModal.showModal());
+document.querySelector('#closePhoto').addEventListener('click', () => photoModal.close());
+photoModal.addEventListener('click', event => { if (event.target === photoModal) photoModal.close(); });
 document.querySelectorAll('#caseForm input, #caseForm textarea').forEach(input => input.addEventListener('input', saveAssessment));
 loadAssessment();
 renderActors(); renderResult(); renderLog();

@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsible Robotics | Attribution Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-mark">R</span><span>RESPONSIBLE<br>ROBOTICS</span></a>
+    <div class="topbar-meta"><span class="status-dot"></span><span>WORKSPACE / 01</span><button id="resetButton" class="text-button">Reset case</button></div>
+  </header>
+
+  <main id="top" class="shell">
+    <section class="intro">
+      <div class="intro-copy-block">
+        <p class="eyebrow">RESPONSIBILITY ATTRIBUTION STUDIO</p>
+        <h1>Make the chain<br><em>visible.</em></h1>
+        <p class="intro-copy">A structured workspace for examining how responsibility travels through a robotic system when an incident occurs.</p>
+      </div>
+      <figure class="intro-visual">
+        <button class="photo-trigger" id="photoTrigger" type="button" aria-label="Open robotics photo">
+          <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=85" alt="Humanoid robot standing in a workshop">
+        </button>
+        <figcaption>FIELD NOTE / AUTONOMOUS SYSTEMS</figcaption>
+      </figure>
+    </section>
+
+    <section class="workspace-grid">
+      <form id="caseForm" class="panel case-panel">
+        <div class="panel-heading"><span class="panel-index">01</span><h2>Case frame</h2><span class="live-label">LIVE</span></div>
+        <label>Incident title<input id="incidentTitle" value="Warehouse navigation deviation" required></label>
+        <label>Observed outcome<textarea id="outcome" rows="3">The mobile robot entered a restricted aisle during a peak-shift delivery run.</textarea></label>
+        <label>Evidence note<textarea id="evidence" rows="4">Navigation logs show a stale map, an operator override, and a missed proximity alert within the same sequence.</textarea></label>
+        <div class="case-footer"><span class="mono">CASE ID / RR-024</span><span class="saved-state" id="savedState">Auto-saved</span></div>
+      </form>
+
+      <section class="panel attribution-panel">
+        <div class="panel-heading"><span class="panel-index">02</span><h2>Attribution map</h2><span class="mono">100 TOTAL</span></div>
+        <div id="actors" class="actors"></div>
+        <button id="addActor" class="add-button" type="button">+ Add responsibility source</button>
+        <div class="allocation"><div class="allocation-label"><span>Allocation balance</span><strong id="totalValue">100%</strong></div><div class="balance-track"><span id="balanceBar"></span></div><p id="balanceMessage">Balanced attribution across the current sources.</p></div>
+      </section>
+
+      <section class="panel result-panel">
+        <div class="panel-heading"><span class="panel-index">03</span><h2>Reading</h2><span class="mono">DISTRIBUTION</span></div>
+        <div id="resultChart" class="result-chart"></div>
+        <div class="result-note"><span class="note-mark">i</span><p>Attribution is a reasoned distribution, not a verdict. Record the evidence and uncertainty that shape each share.</p></div>
+        <button id="exportButton" class="primary-button" type="button">Export assessment <span>↗</span></button>
+      </section>
+    </section>
+
+    <section class="log-section">
+      <div class="section-heading"><div><p class="eyebrow">AUDIT TRAIL</p><h2>Reasoning log</h2></div><button id="addLog" class="outline-button" type="button">+ Add observation</button></div>
+      <div id="log" class="log-list"></div>
+    </section>
+  </main>
+  <dialog id="photoModal" class="photo-modal">
+    <button id="closePhoto" class="close-photo" type="button" aria-label="Close photo">Close <span>×</span></button>
+    <img src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1800&q=90" alt="Humanoid robot standing in a workshop">
+    <p>FIELD NOTE / AUTONOMOUS SYSTEMS</p>
+  </dialog>
+  <footer><span>RESPONSIBLE ROBOTICS / ATTRIBUTION STUDIO</span><span class="mono">LOCAL CASE WORKSPACE</span></footer>
+  <script src="app.js"></script>
+</body>
+</html>
